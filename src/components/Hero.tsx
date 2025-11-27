@@ -14,16 +14,17 @@ const Hero = () => {
         <div className="inline-block mb-6 px-6 py-2 bg-accent/90 backdrop-blur-sm rounded-full">
           <span className="text-foreground font-semibold tracking-wide">SOLANA</span>
         </div>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-          Where Luxury
+         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+          حيث تلتقي
           <br />
-          <span className="text-accent">Meets Nature</span>
+          <span className="text-accent">الفخامة بالطبيعة</span>
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto text-white/90 leading-relaxed">
-          Experience unparalleled elegance in Sheikh Zayed's most prestigious address
+          عش تجربة الفخامة في أرقى عناوين مدينة الشيخ زايد
         </p>
       </div>
       
+      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
           <div className="w-1 h-2 bg-white/50 rounded-full" />

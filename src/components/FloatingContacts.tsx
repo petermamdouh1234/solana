@@ -2,11 +2,11 @@ import { MessageCircle, Phone } from "lucide-react";
 
 const FloatingContacts = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/201202307815', '_blank');
+    window.open('https://wa.me/201220665285', '_blank');
   };
 
   const handlePhoneClick = () => {
-    window.location.href = 'tel:+201202307815';
+    window.location.href = 'tel:+201220665285';
   };
 
   return (

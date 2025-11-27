@@ -13,66 +13,63 @@ const ContactForm = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Create WhatsApp message with user's data
-    const whatsappMessage = `
-*New Inquiry from Solana Website*
+ const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 
-*Name:* ${formData.name}
-*Email:* ${formData.email}
-*Phone:* ${formData.phone}
-*Message:* ${formData.message}
+  // Construct the message without newlines breaking WhatsApp
+  const whatsappMessage = `
+استفسار جديد من موقع SOLANA          
+الاسم: ${formData.name}
+البريد الإلكتروني: ${formData.email}
+رقم الهاتف: ${formData.phone}
+الرسالة: ${formData.message}
+المشروع: Solana New Sheikh Zayed
+الموقع: غرب القاهرة على محور الضبعة
+  `.trim();
 
----
-*Project:* Solana New Sheikh Zayed
-*Location:* Western Cairo on the Dabaa axis
-    `.trim();
+  const encodedMessage = encodeURIComponent(whatsappMessage);
 
-    // Encode the message for URL
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    
-    // Open WhatsApp with the message
-    window.open(`https://wa.me/201202307815?text=${encodedMessage}`, '_blank');
-    
-    // Show success toast
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you shortly via WhatsApp.",
-    });
+  // Open WhatsApp
+  window.open(`https://wa.me/201066551155?text=${encodedMessage}`, "_blank");
 
-    // Reset form
-    setFormData({ name: "", email: "", phone: "", message: "" });
-  };
+  toast({
+    title: "تم إرسال الرسالة!",
+    description: "سيتم فتح WhatsApp لإرسال رسالتك.",
+  });
+
+  setFormData({ name: "", email: "", phone: "", message: "" });
+};
+
 
   return (
     <section id="contact" className="py-20 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
+          {/* Section Header */}
           <div className="text-center mb-12 animate-fade-in">
             <div className="inline-block px-4 py-1 bg-accent/10 rounded-full mb-4">
-              <span className="text-accent font-semibold text-sm tracking-wide">CONTACT US</span>
+              <span className="text-accent font-semibold text-sm tracking-wide">اتصل بنا</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Get in <span className="text-accent">Touch</span>
+              تواصل معنا
             </h2>
             <p className="text-lg text-muted-foreground">
-              Ready to find your dream home? Contact us today
+              جاهز للعثور على منزل أحلامك؟ اتصل بنا اليوم
             </p>
           </div>
 
+          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6 bg-card rounded-2xl p-8 shadow-xl">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground">
-                  Full Name *
+                  الاسم الكامل *
                 </label>
                 <Input
                   id="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="John Doe"
+                  placeholder="أدخل اسمك"
                   required
                   className="bg-background"
                 />
@@ -80,15 +77,14 @@ const ContactForm = () => {
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground">
-                  Email Address *
+                  البريد الإلكتروني *
                 </label>
                 <Input
                   id="email"
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="john@example.com"
-               
+                  placeholder="email@example.com"
                   className="bg-background"
                 />
               </div>
@@ -96,7 +92,7 @@ const ContactForm = () => {
 
             <div>
               <label htmlFor="phone" className="block text-sm font-medium mb-2 text-foreground">
-                Phone Number *
+                رقم الهاتف *
               </label>
               <Input
                 id="phone"
@@ -111,53 +107,43 @@ const ContactForm = () => {
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground">
-                Your Message *
+                رسالتك *
               </label>
               <Textarea
                 id="message"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Tell us about your requirements..."
+                placeholder="أخبرنا عن متطلباتك..."
                 rows={5}
-             
                 className="bg-background resize-none"
               />
             </div>
 
             <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-              Send Message via WhatsApp
+              WhatsApp إرسال عبر 
             </Button>
           </form>
 
-          <div className="mt-12 p-8 bg-card rounded-2xl shadow-lg">
-            <h3 className="text-2xl font-bold mb-6 text-center text-foreground">Location Highlights</h3>
-            <div className="grid md:grid-cols-2 gap-4 text-muted-foreground">
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                <p>Located in western Cairo on the Dabaa axis</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                <p>Direct access to Alexandria Desert Road</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                <p>Adjacent to the Belle Compound</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                <p>45 minutes from AUC</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                <p>Close to Sphinx International Airport</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                <p>Near 26th of July Corridor</p>
-              </div>
-            </div>
-          </div>
+          {/* Location Highlights */}
+         <div className="mt-12 p-8 bg-card rounded-2xl shadow-lg">
+  <h3 className="text-2xl font-bold mb-6 text-center text-foreground">مميزات الموقع</h3>
+  <div className="grid md:grid-cols-2 gap-4 text-muted-foreground">
+    {[
+      "يقع غرب القاهرة على محور الضبعة",
+      "وصول مباشر إلى طريق الإسكندرية الصحراوي",
+      " Belle بجوار كمباوند ",
+      "45 دقيقة من الجامعة الأمريكية بالقاهرة",
+      "قريب من مطار سفنكس الدولي",
+      "بالقرب من محور 26 يوليو",
+    ].map((point, index) => (
+      <div key={index} className="flex flex-row-reverse items-start gap-3 text-right">
+        <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+        <p>{point}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
         </div>
       </div>
     </section>

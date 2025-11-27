@@ -36,13 +36,13 @@ const Projects = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <div className="inline-block px-4 py-1 bg-accent/10 rounded-full mb-4">
-            <span className="text-accent font-semibold text-sm tracking-wide">OUR PROJECTS</span>
+            <span className="text-accent font-semibold text-sm tracking-wide">مشاريعنا</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Choose Your <span className="text-accent">Dream Home</span>
+            اختر <span className="text-accent">منزل أحلامك</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore our exceptional collection of luxury residences
+            اكتشف مجموعتنا المميزة من العقارات الفاخرة
           </p>
         </div>
 
