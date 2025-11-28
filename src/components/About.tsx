@@ -16,13 +16,12 @@ const About = () => {
           
           {/* Text */}
           <div className="space-y-6 animate-fade-in">
-            <div className="inline-block px-4 py-1 bg-accent/10 rounded-full">
-              <span className="text-accent font-semibold text-sm tracking-wide"> SOLANA </span>
-            </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-foreground">
-              رؤية من <span className="text-accent">التميز</span>
-            </h2>
+            
+           <h2 className="text-4xl md:text-5xl font-bold leading-tight text-right text-foreground">
+  رؤية من <span className="text-accent">التميز</span>
+</h2>
+
             
           <p className="text-lg text-muted-foreground leading-relaxed text-right">
   كما اعتدتم من <span className="inline-block direction-ltr text-accent">Ora Real Estate Development</span>، تقدم لكم هذا العام تجربة سكنية فريدة ومتكاملة في أرقى المناطق السكنية، مع تصميمات مبتكرة ومرافق متكاملة تلبي جميع احتياجاتكم. </p>

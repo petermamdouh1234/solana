@@ -8,7 +8,7 @@ const ContactForm = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    job: "",
     phone: "",
     message: ""
   });
@@ -20,7 +20,7 @@ const ContactForm = () => {
   const whatsappMessage = `
 استفسار جديد من موقع SOLANA          
 الاسم: ${formData.name}
-البريد الإلكتروني: ${formData.email}
+المسمى الوظيفي: ${formData.job}
 رقم الهاتف: ${formData.phone}
 الرسالة: ${formData.message}
 المشروع: Solana New Sheikh Zayed
@@ -30,14 +30,14 @@ const ContactForm = () => {
   const encodedMessage = encodeURIComponent(whatsappMessage);
 
   // Open WhatsApp
-  window.open(`https://wa.me/201066551155?text=${encodedMessage}`, "_blank");
+  window.open(`https://wa.me/201220665289?text=${encodedMessage}`, "_blank");
 
   toast({
     title: "تم إرسال الرسالة!",
     description: "سيتم فتح WhatsApp لإرسال رسالتك.",
   });
 
-  setFormData({ name: "", email: "", phone: "", message: "" });
+  setFormData({ name: "", job: "", phone: "", message: "" });
 };
 
 
@@ -76,18 +76,19 @@ const ContactForm = () => {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground">
-                  البريد الإلكتروني *
-                </label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="email@example.com"
-                  className="bg-background"
-                />
-              </div>
+  <label htmlFor="job" className="block text-sm font-medium mb-2 text-foreground">
+    المسمى الوظيفي *
+  </label>
+  <Input
+    id="job"
+    value={formData.job} // keep the state name or rename later
+    onChange={(e) => setFormData({ ...formData, job: e.target.value })}
+    placeholder="أدخل المسمى الوظيفي"
+    required
+    className="bg-background"
+  />
+</div>
+
             </div>
 
             <div>
@@ -99,7 +100,7 @@ const ContactForm = () => {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder="+20 123 456 7890"
+                placeholder="+20 122 345 6789"
                 required
                 className="bg-background"
               />

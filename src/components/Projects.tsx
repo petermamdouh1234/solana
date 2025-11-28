@@ -34,6 +34,8 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4">
+
+        {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <div className="inline-block px-4 py-1 bg-accent/10 rounded-full mb-4">
             <span className="text-accent font-semibold text-sm tracking-wide">مشاريعنا</span>
@@ -46,11 +48,36 @@ const Projects = () => {
           </p>
         </div>
 
+        {/* Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
         </div>
+
+        {/* 🔥 Important Price Message */}
+     <div className="mt-20 text-center bg-[#588157] text-white p-8 rounded-2xl mx-auto max-w-3xl shadow-xl border border-[#D8C3A5] animate-fade-in space-y-2">
+  <p className="text-3xl font-extrabold leading-relaxed">
+    الأسعار تبدأ من 
+    <span className=""> ٢٠ مليون </span>
+ 
+    بمقدم 
+    <span className=""> ١٠٪؜ </span>
+    وتقسيط حتى  
+    <span className=""> ١٠ سنوات </span>
+
+  </p>
+
+  <a 
+    href="#contact" 
+    className="inline-block mt-4 bg-[#D8C3A5] text-[#3A5A40] font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-[#c9b29a] transition-all"
+  >
+    تواصل معنا الآن
+  </a>
+</div>
+
+
+
       </div>
     </section>
   );
