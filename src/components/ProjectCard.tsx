@@ -28,7 +28,7 @@ const ProjectCard = ({ title, images }: ProjectCardProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative h-[400px] overflow-hidden">
+      <div className="relative h-[480px]  overflow-hidden">
         {images.map((image, index) => (
           <img
             key={index}
